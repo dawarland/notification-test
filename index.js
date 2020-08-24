@@ -10,7 +10,7 @@ expressServer.listen(process.env.PORT || 3000, () => {
     console.log("Serveur en ecoute sur "+ (process.env.PORT || 3000 ) )
     expressServer.get("/", function(req, res) {
         const token = req.query.token;
-        if(!Expo.isExpoPushToken()){
+        if(!Expo.isExpoPushToken(token)){
             console.log("Erreur d'envoie");
             res.send( {err : "Erreur d'envoie"} )
         }else{
